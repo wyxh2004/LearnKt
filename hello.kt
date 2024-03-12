@@ -19,7 +19,7 @@ fun main (){
         println("You are within the range")
     }
 
-    var programmingLanguages=Listof("Kotlin","Java","C++","C#","Python")
+    var programmingLanguages = listOf("Kotlin","Java","C++","C#","Python")
     println(programmingLanguages.size) // 5
 
 
@@ -33,7 +33,7 @@ fun main (){
     
     println(colors.union(newColors)) // [Red, Blue, Green, Yellow, Black, Purple, Orange, White]
     println(colors.elementAt(0)) // Red
-    println(colors.elementAt(10)) // IndexOutOfBoundsException
+    // println(colors.elementAt(10)) // IndexOutOfBoundsException
     println(colors.elementAtOrNull(10)) // null
 
     var average = mapOf("John" to 3.2, "Jane" to 2.8, "Jack" to 4.0)
@@ -46,4 +46,66 @@ fun main (){
     vegetables.put("Cucumber", 10) 
     vegetables.remove("Carrot")
     println(vegetables) // {Potato=2, Tomato=3, Cucumber=10
+
+    //lambda expression
+    var getdiff = {num1: Int, num2: Int -> num1 - num2}
+    println(getdiff(10,5)) // 5
+}
+
+class Student {
+    var name: String = ""
+    var age: Int = 0
+    var grade: Int = 0
+}
+
+fun main2() {
+    var student = Student()
+
+    println(student.name)
+    student.name = "John"
+    println(student.name)
+    student.age = 18
+    println(student.age)
+    student.grade = 10
+    println(student.grade)
+}
+
+class Student2(val name: String, val age: Int, val grade: Int)
+
+fun main3(){
+    var student = Student2("John", 18, 100)
+    println(student.name)
+    println(student.age)
+    println(student.grade)
+}
+
+class Student3(var name: String, var age: Int, var grade: Double) {
+    init{
+        println("Student3 $name constructor called, has ${grade - 100} grades.")
+    }
+}
+
+fun main4(){
+    var student = Student3("John", 18, 100.0) // Student3 John constructor called, has 0 grades.
+}
+
+class Student4(var name: String, var age: Int, var grade: Double) {
+    init{
+        println("Student4 $name constructor called, has ${grade - 100} grades.")
+    }
+    fun calc():String{
+        return when{
+            grade > 90 -> "Excellent"
+            grade > 80 -> "Good"
+            grade > 70 -> "Average"
+            grade > 60 -> "Below Average"
+            else -> "Fail"
+        }
+    }
+}
+
+fun main5(){
+    var student = Student4("John", 18, 85.0)
+    println("${student.name} has ${student.calc()} grades.}")
+    // John has Good grades.
 }
