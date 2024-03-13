@@ -1,0 +1,6 @@
+val values = ......
+val email = value["email"]?:throw IllegalStateException("email is missing")
+
+//在可能会空的集合中取第一元素
+val students = ...
+val main_student = students.firstOrNull()?:"null string"
