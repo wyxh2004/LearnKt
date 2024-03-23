@@ -58,6 +58,8 @@ open class Round {
     var borderColor: String  get() = "black" 
 }
 
+
+//在一个内部类中访问外部类的超类，可以使用由外部类名限定的 super 关键字来实现：super@Outer：
 class filledRound : Round() {
     override fun draw() {
         var filler = Filler()
@@ -72,4 +74,9 @@ class filledRound : Round() {
             println("Drawing a filled round shape with color ${super@filledRound.borderColor }") //调用Round实现的borderColor的get()
         }
     }
+}
+
+fun main() {
+    val fr = FilledRectangle()
+        fr.draw()
 }
