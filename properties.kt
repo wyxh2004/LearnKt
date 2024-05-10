@@ -54,9 +54,9 @@ val area get() = this.width * this.height
 
 var stringRepresentation: String
     get() = this.toString()
-    set(value) {
+    set(value) { //按照惯例，setter 参数的名称是 value
         setDataFromString(value) // 解析字符串并赋值给其他属性
-}//按照惯例，setter 参数的名称是 value
+}
 
 var setterVisibility: String = "abc"
     private set // 此 setter 是私有的
